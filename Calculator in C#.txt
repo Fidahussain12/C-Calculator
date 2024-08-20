@@ -1,0 +1,65 @@
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            // Create instances of the Calculator class with different initial values
+            Console.WriteLine("Enter number 1");
+            int n1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter number 2");
+            int n2 = Convert.ToInt32(Console.ReadLine());
+            Calculator c1 = new Calculator(n1, n2);
+          
+
+            // Output the results of the calculations for the first calculator
+            
+            Console.WriteLine("Sum: " + c1.CalculateSum());
+            Console.WriteLine("Difference: " + c1.CalculateDifference());
+            Console.WriteLine("Product: " + c1.CalculateProduct());
+            Console.WriteLine("Quotient: " + c1.CalculateQuotient());
+
+         
+        }
+    }
+}
+public class Calculator
+{
+    private int x, y;  // Fields to store the numbers
+
+    // Constructor to initialize the fields
+    public Calculator(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    // Method to calculate the sum of x and y
+    public int CalculateSum()
+    {
+        return this.x + this.y;
+    }
+
+    // Method to calculate the difference between x and y
+    public int CalculateDifference()
+    {
+        return this.x - this.y;
+    }
+
+    // Method to calculate the product of x and y
+    public int CalculateProduct()
+    {
+        return this.x * this.y;
+    }
+
+    // Method to calculate the quotient of x divided by y
+    // Handles division by zero
+    public string CalculateQuotient()
+    {
+        if (this.y == 0)
+        {
+            return "Division by zero is not allowed.";
+        }
+        return (this.x / (double)this.y).ToString();
+    }
+}
